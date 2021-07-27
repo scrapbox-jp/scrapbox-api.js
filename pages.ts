@@ -9,17 +9,17 @@ import { toLc } from "./lc.ts";
 
 type PageProps = {
   project: string;
-  page: string;
+  title: string;
   followRename?: boolean;
 } & Options;
 
 export const pages = {
   async get(
-    { project, page, sid, fetch = globalThis.fetch, followRename = false }:
+    { project, title, sid, fetch = globalThis.fetch, followRename = false }:
       PageProps,
   ) {
     const response = await fetch(
-      `https://scrapbox.io/api/pages/${project}/${toLc(page)}${
+      `https://scrapbox.io/api/pages/${project}/${toLc(title)}${
         followRename ? `?followRename=true` : ""
       }`,
       sid !== undefined ? createCookieHeaders(sid) : undefined,
