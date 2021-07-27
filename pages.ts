@@ -9,7 +9,7 @@ import { toLc } from "./lc.ts";
 
 type PageProps = {
   project: string;
-  page: string;
+  title: string;
   followRename?: boolean;
 } & Options;
 
